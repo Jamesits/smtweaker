@@ -12,7 +12,7 @@ func main() {
 		AllowedHosts: []string{},
 	}
 	backend := &SmtweakerBackend{}
-	logger := &log.HookedLogger{}
+	logger, _ := log.GetLogger("/tmp/smtweak.log")
 	app, err := guerrilla.New(config, backend, logger)
 	startErrors := app.Start()
 	app.Shutdown()
